@@ -11,18 +11,10 @@ const IconWrapper = React.lazy(() => import("./IconWrapper"));
 import self from "../../assets/myself.jpg"
 import { FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
-import { Helmet } from "react-helmet-async";
 
 
 const Hero2 = () => {
-  <Helmet>
-    <title>Software Developer and Instructor | Oluwafemi Michael</title>
-    <meta
-      name="description"
-      content="Building a modern web application and scalable web system"
-    />
-    <meta name="keywords" content="frontend developer, backend developer, full-stack developer, tech instructor" />
-  </Helmet>
+
   const feature1 = useRef(null);
   const feature2 = useRef(null);
   const feature3 = useRef(null);

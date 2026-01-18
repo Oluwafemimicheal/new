@@ -5,26 +5,23 @@ import Portfolio from './components/portfolio/Portfolio'
 import Articles from './components/portfolio/Articles'
 import Navbar from './components/Navbar'
 import Contact from './components/portfolio/Contact'
-import { HelmetProvider } from "react-helmet-async";
 
 const App = () => {
   return (
-    <HelmetProvider>
+    <div className='w-full overflow-hidden'>
+      <header className='fixed w-full top-2 z-99'>
+        <Navbar />
+      </header>
+      <main>
+        <Hero2 />
+        <About />
+        <Portfolio />
+        <Articles />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
 
-      <div className='w-full overflow-hidden'>
-        <header className='fixed w-full top-2 z-99'>
-          <Navbar />
-        </header>
-        <main>
-          <Hero2 />
-          <About />
-          <Portfolio />
-          <Articles />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </HelmetProvider>
   )
 }
 
