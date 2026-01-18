@@ -4,14 +4,11 @@ import { FaEnvelope, FaGit, FaGitAlt, FaGithub, FaGitSquare, FaLinkedin } from '
 
 const Footer = () => {
   return (
-    <div>
-    
-    
-    <div className='pt-5 pb-10 flex flex-col justify-center items-center'>
-      <p className='text-gray-800'>Designed by me, all right reserved for me.</p>
-    </div>
-
-    </div>
+    <footer>
+      <div className='pt-5 pb-10 flex flex-col justify-center items-center'>
+        <p className='text-gray-800'>Designed by me, all right reserved for me.</p>
+      </div>
+    </footer>
   )
 }
 

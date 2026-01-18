@@ -1,5 +1,5 @@
-import HowIWork from './HowIWork'
-import { useRef } from "react";
+import React, { useRef } from "react";
+const HowIWork = React.lazy(() => import("./HowIWork"));
 import { useScroll } from "../../util/useScroll";
 import { project } from '../../portfolioData';
 
@@ -12,13 +12,13 @@ const Portfolio = () => {
 
   return (
     <section className="max-w-6xl mx-auto px-6 py-20" id="project">
-      <h3 className="md:w-[60%] lg:leading-12 text-2xl lg:text-4xl font-semibold text-gray-700 mb-10">Here are some things I've built fot the joy of it and to challenge myself.</h3>
+      <h2 className="md:w-[60%] lg:leading-12 text-2xl lg:text-4xl font-semibold text-gray-700 mb-10">Here are some things I've built fot the joy of it and to challenge myself.</h2>
       <div className="grid md:grid-cols-3 gap-8" ref={feature1}>
         {project.map((projectType, index) => (
           projectType.essentialSeniorDeveloperProjects.map((project) => (
             <div key={project.id} className="rounded-md shadow-sm">
               <div className="p-6">
-                <h3 className="font-semibold text-xl">{project.name.substring(0, 25) + "..."}</h3>
+                <h2 className="font-semibold text-xl">{project.name.substring(0, 25) + "..."}</h2>
                 <p className="mt-3 text-md text-gray-600">
                   {project.coreFeatures}
                 </p>

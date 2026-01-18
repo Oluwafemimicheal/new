@@ -78,3 +78,27 @@ export const project = [
   }
   
 ]
+
+export const blog = [
+  {
+    topic: "Building a Full-Stack Hotel Management System from Scratch",
+    projectArchitecture: ["React + Node.js/Express + MongoDB/PostgreSQL", "Role-based authentication (admin, staff, user)", "Room booking system with availability logic", "REST API endpoints with proper error handling", "Deployment (Vercel/Netlify + Heroku/Render)"],
+    extras: ["Screenshots or GIFs of the app", "Code snippets of complex logic", "Link to GitHub repo"],
+    titleExample: "How I Built a Full-Stack Hotel Booking System Using React, Node.js & MongoDB",
+    date: "12-Jan-2025"
+  },
+  {
+    topic: "Optimizing React Performance: 10 Real-Life Techniques",
+    projectArchitecture: ["React memoization (React.memo, useMemo, useCallback)", "Lazy loading components and images", "Code splitting and dynamic imports", "Proper key usage in lists", "Reducing unnecessary re-renders"],
+    extras: ["Benchmarks before/after optimization", "Demo links for live performance testing"],
+    titleExample: "Boosting Your React App Performance: 10 Techniques I Use in Production",
+    date: "22-April-2025"
+  },
+  {
+    topic: "Full-Stack Authentication & Authorization Explained with JWT & Role-Based Access",
+    projectArchitecture: ["JWT generation and verification", "Protecting API routes with middleware", "Role-based access in React (ProtectedRoute, Context API)", "Refresh tokens, logout, token expiration handling", "Best practices and common pitfalls"],
+    extras: ["Diagram showing token flow", "Code snippets for both frontend and backend", "Tips for real-world deployment"],
+    titleExample: "Mastering Full-Stack Authentication: JWT, Role-Based Access & Security Best Practices",
+    date: "10-Dec-2025"
+  }
+]

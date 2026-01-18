@@ -1,10 +1,10 @@
 import { GoMail } from "react-icons/go";
 import { FiPhoneCall } from "react-icons/fi";
 import { SlLocationPin } from "react-icons/sl";
-import ContactBox from "./ContactBox";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useScroll } from "../../util/useScroll";
 import axios from "axios";
+const ContactBox = React.lazy(() => import("./ContactBox"));
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -63,7 +63,7 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto py-20 gap-10 flex flex-col lg:flex-row justify-between ">
         <div className='lg:w-[40%] mb-2 lg:mb-10' ref={feature1}>
           <div>
-            <h3 className='mb-1 text-2xl lg:text-4xl text-gray-700 font-semibold leading-12 '>Get in Touch</h3>
+            <h2 className='mb-1 text-2xl lg:text-4xl text-gray-700 font-semibold leading-12 '>Get in Touch</h2>
             <p className='text-lg text-gray-700'>Have a question for me, or need my skills in your project?</p>
           </div>
           <div className="mt-10 flex flex-col gap-2">

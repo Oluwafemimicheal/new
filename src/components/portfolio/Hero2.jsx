@@ -1,20 +1,28 @@
 import PryBtn, { SecBtn } from '../Button'
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { useScroll } from "../../util/useScroll";
-import { motion } from "framer-motion";
 import { FaHtml5, FaCss3, FaAngular, FaBootstrap, FaNodeJs, FaGithub, FaStackOverflow } from "react-icons/fa";
 import { TbBrandJavascript } from "react-icons/tb";
 import { SiExpress, SiMongodb, SiRedis } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { IoLogoReact } from "react-icons/io5";
-import IconWrapper from './IconWrapper';
+const IconWrapper = React.lazy(() => import("./IconWrapper"));
 import self from "../../assets/myself.jpg"
 import { FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 
 
 const Hero2 = () => {
+  <Helmet>
+    <title>Software Developer and Instructor | Oluwafemi Michael</title>
+    <meta
+      name="description"
+      content="Building a modern web application and scalable web system"
+    />
+    <meta name="keywords" content="frontend developer, backend developer, full-stack developer, tech instructor" />
+  </Helmet>
   const feature1 = useRef(null);
   const feature2 = useRef(null);
   const feature3 = useRef(null);
@@ -41,10 +49,10 @@ const Hero2 = () => {
             <div className='w-8 h-8 rounded-full overflow-hidden'>
               <img src={self} alt="self" className='flex justify-center items-center' />
             </div>
-            <h3 className='text-md text-gray-800 font-bold'>I'm Oluwafemi Michael</h3>
+            <h2 className='text-md text-gray-800 font-bold'>I'm Oluwafemi Michael</h2>
           </div>
-          <div
-            className='text-3xl text-center lg:text-left lg:text-6xl font-extrabold text-gray-300'>Software Developer, Instructor and Coding Hit</div>
+          <h1
+            className='text-3xl text-center lg:text-left lg:text-6xl font-extrabold text-gray-300'>Software Developer, Instructor and Coding Hit</h1>
           <p
             
             className="text-xl text-center lg:text-left lg:w-5/6 mt-3 leading-8 text-gray-400"

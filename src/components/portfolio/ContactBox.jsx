@@ -1,4 +1,3 @@
-import React from 'react'
 
 const ContactBox = ({icon, title, address, href}) => {
   return (
