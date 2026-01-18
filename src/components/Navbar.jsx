@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom"
-import { FaBars, FaChevronUp } from "react-icons/fa"
-import PryBtn, { SecBtn } from "./Button"
+import { FaChevronUp } from "react-icons/fa"
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
@@ -23,7 +21,7 @@ const Navbar = () => {
 
   return (
     <header className={`${scroll ? "sticky top-2 w-max rounded-2xl bg-gray-800/95 text-white" : "hidden"} p-2 justify-center flex items-center mx-auto z-99 shadow relative`}>
-      <nav className='w-full px-5 lg:px-0 lg:max-w-6xl mx-auto flex justify-between items-center'>
+      <nav className='w-full px-0 lg:px-0 lg:max-w-6xl mx-auto flex justify-between items-center'>
         <div className="inline-flex gap-10">
           <ul className="flex justify-between w-full lg:w-[320px] text-xs lg:text-sm">
             <li><a href="#home" className="py-0.5 px-2 hover:bg-gray-500 rounded">Home</a></li>
