@@ -18,7 +18,7 @@ const Portfolio = () => {
           projectType.essentialSeniorDeveloperProjects.map((project) => (
             <div key={project.id} className="rounded-md shadow-sm">
               <div className="p-6">
-                <h3 className="font-semibold text-xl">{project.name}</h3>
+                <h3 className="font-semibold text-xl">{project.name.substring(0, 25) + "..."}</h3>
                 <p className="mt-3 text-md text-gray-600">
                   {project.coreFeatures}
                 </p>

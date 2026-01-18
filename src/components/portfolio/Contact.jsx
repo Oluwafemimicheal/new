@@ -2,15 +2,55 @@ import { GoMail } from "react-icons/go";
 import { FiPhoneCall } from "react-icons/fi";
 import { SlLocationPin } from "react-icons/sl";
 import ContactBox from "./ContactBox";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useScroll } from "../../util/useScroll";
-import { useForm, ValidationError } from '@formspree/react';
+import axios from "axios";
 
 const Contact = () => {
-  const [state, handleSubmit] = useForm("mdaakrbd");
-  
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState(null);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const response = await axios.post(
+        "https://formspree.io/f/mdaakrbd",
+        formData,
+        {
+          headers: { Accept: "application/json" },
+        }
+      );
+      if (response.status === 200) {
+        setStatus("success");
+        setTimeout(() => {
+          setStatus(null)
+        }, 2000)
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
+  };
+
+
+
   const feature1 = useRef(null);
   const feature3 = useRef(null);
+
 
   useScroll([feature1], {
     origin: "left",
@@ -34,27 +74,31 @@ const Contact = () => {
           </div>
         </div>
         <div className='lg:w-[50%]' ref={feature3}>
-          <form action={"https://formspree.io/f/mdaakrbd"} method="POST" onSubmit={handleSubmit} className='flex flex-col gap-3 w-full'>
-            <input type='text' id="name" name="name" placeholder='Full Name' className='p-3 border-2 border-gray-700 focus:border-sky-500 text-gray-700 rounded-md outline-none' required />
-            <ValidationError
-              prefix="Name"
-              field="text"
-              errors={state.errors}
-            />
-            <input type='email' id="email" name="email" placeholder='Email' className='p-3 border-2 border-gray-700 text-gray-700 rounded-md outline-none focus:border-sky-500' required />
-            <ValidationError
-              prefix="Email"
-              field="email"
-              errors={state.errors}
-            />
+          <form onSubmit={handleSubmit} className='flex flex-col gap-3 w-full'>
+            <input type='text' id="name" name="name" value={formData.name}
+              onChange={handleChange} placeholder='Full Name' className='p-3 border-2 border-gray-700 focus:border-sky-500 text-gray-700 rounded-md outline-none' required />
+
+            <input type='email' id="email" name="email" value={formData.email}
+              onChange={handleChange} placeholder='Email' className='p-3 border-2 border-gray-700 text-gray-700 rounded-md outline-none focus:border-sky-500' required />
+
             <textarea id="message"
-              name="message" placeholder='Drop your message here...' rows={6} className='p-2 border-2 border-gray-700 text-gray-700 rounded-md outline-none focus:border-sky-500 resize-none' required></textarea>
-            <ValidationError
-              prefix="Message"
-              field="message"
-              errors={state.errors}
-            />
-            <button type='submit' disabled={state.submitting} className='w-max py-2 px-10 hover:bg-gray-700 bg-gray-800 rounded-md cursor-pointer font-bold text-white'>Submit</button>
+              name="message" placeholder='Drop your message here...' value={formData.message}
+              onChange={handleChange} rows={6} className='p-2 border-2 border-gray-700 text-gray-700 rounded-md outline-none focus:border-sky-500 resize-none' required></textarea>
+
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className='w-max py-2 px-10 hover:bg-gray-700 bg-gray-800 rounded-md cursor-pointer font-bold text-white'
+            >
+              {status === "loading" ? "Sending..." : "Send Message"}
+            </button>
+
+            {status === "success" && (
+              <p className="text-green-600 mt-2">Message sent successfully!</p>
+            )}
+            {status === "error" && (
+              <p className="text-red-600 mt-2">Oops! Something went wrong.</p>
+            )}
           </form>
         </div>
       </div>
