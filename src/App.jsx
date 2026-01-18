@@ -8,7 +8,7 @@ import Contact from './components/portfolio/Contact'
 
 const App = () => {
   return (
-    <div>
+    <div className='w-full overflow-hidden'>
       <div className='fixed w-full top-2 z-99'>
         <Navbar />
       </div>
