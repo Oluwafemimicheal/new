@@ -24,12 +24,12 @@ const About = () => {
           <p className='text-lg text-gray-700'>Beyond my development work, I serve as an instructor, creating and teaching in-depth courses while helping students overcome real development challenges, with the goal of empowering aspiring developers to succeed.</p>
         </div>
         <div className='relative' ref={feature3}>
-          <div className='w-50 h-50 lg:w-80 lg:h-80 rounded-lg -rotate-6 absolute bg-gray-200 overflow-hidden'></div>
-          <div className='w-50 h-50 lg:w-80 lg:h-80 rounded-lg rotate-6 bg-gray-200 overflow-hidden'>
+          <div className='w-60 h-60 lg:w-80 lg:h-80 rounded-lg -rotate-6 absolute bg-gray-200 overflow-hidden'></div>
+          <div className='w-60 h-60 lg:w-80 lg:h-80 rounded-lg rotate-6 bg-gray-200 overflow-hidden'>
             <img src={self} alt="self" className='flex justify-center items-center' />
           </div>
           <div>
-            <div className='mt-16 flex justify-between items-center gap-2 lg:gap-5'>
+            <div className='hidden mt-16 lg:flex justify-between items-center gap-2 lg:gap-5'>
               <div className='w-max p-1 bg-gray-200 rounded-sm'>
                 <FaGithub size={30} />
               </div>
